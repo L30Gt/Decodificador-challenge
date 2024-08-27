@@ -1,0 +1,221 @@
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono&display=swap');
+
+
+:root {
+    --background-color: #1e1e2e;
+    --text-color: #cdd6f4;
+    --text-focus-color: #89dceb ;
+    --main-background-color: #585b70;
+    --text-area-background-color: #7f849c;
+    --border-color: #89b4fa;
+}
+
+
+* {
+    font-family: "JetBrains Mono", monospace;
+
+    margin: 10px;
+    padding: 0px;
+    box-sizing: border-box;
+}
+
+header {
+    display: flex;
+    align-items: center;
+    gap: 80px;
+}
+
+body {
+    margin: 10px;
+    background-color: var(--background-color);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.input-text, .output-text {
+    display: flex;
+    align-items: row; 
+    box-sizing: border-box;
+    padding: 10px;
+    width: 500px;
+    height: 400px;
+    border: solid 3px #7f849c;
+    border-radius: 30px;
+    background-color: var(--text-area-background-color);
+    text-align: center;
+    resize: none;
+    outline: none;
+    font-size: 32px;
+    color: var(--text-color);   
+}
+
+textarea:focus, textarea:hover{
+    border: 3px solid var(--border-color);
+    color: var(--text-focus-color);
+}   
+
+::placeholder {
+    color: #bac2de;
+}
+
+label{
+    font-size: 16px;
+    color: var(--text-color);
+    text-align: center;
+}
+  
+main {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 10% 10%;
+    background-color: var(--main-background-color);
+    border: 3px solid var(--border-color);
+    border-radius: 20px;
+    box-sizing: border-box;
+    margin-top: 30px;
+    width: fit-content;
+    box-shadow: -1px -1px 10px#00b4befe;
+}
+
+.message-user-area {
+    text-align: center;
+    padding-left: 20px;
+}
+
+.message-encrypted-area {
+    position: relative; 
+    padding-right: 20px;
+}
+
+.alert-image {
+    position: absolute; 
+    top: 35%; 
+    left: 45%; 
+    transform: translate(-50%, -50%); 
+    max-width: 60%; 
+    display: block; 
+    pointer-events: none; 
+}
+
+.buttons {
+    display: flex;
+    justify-content: center;
+}
+
+#btn-encrypt, #btn-decrypt {
+    padding: 4px;
+    font-size: 15px;
+    background-color: var(--background-color);
+    border-radius: 15px;
+    color: var(--text-color);
+    border: solid 2px var(--border-color);
+    align-items: center;
+    height: 50px;
+    width: 170px;
+}
+
+#btn-clear {
+    padding: 4px;
+    font-size: 15px;
+    background-color: var(--background-color);
+    border-radius: 15px;
+    color: var(--text-color);
+    border: solid 2px var(--border-color);
+    align-items: center;
+    height: 50px;
+    width: 100px;
+}
+
+#btn-copy {
+    padding: 4px;
+    font-size: 15px;
+    background-color: var(--background-color);
+    border-radius: 15px;
+    color: var(--text-color);
+    border: solid 2px var(--border-color);
+    height: 50px;
+    width: 400px;
+}
+
+#btn-encrypt:hover,
+#btn-decrypt:hover,
+#btn-clear:hover,
+#btn-copy:hover {
+    background-color: #b4befe;
+    color: #11111b;
+    border: 2px solid #45475a;
+    transition: ease-in-out 0.2s;
+}
+
+h1 {
+    color: var(--text-color)
+}
+
+h2 {
+    font-size: 17px;
+    display: block;
+    text-align: center;
+    color: var(--text-color);
+}
+
+h3{
+    font-size: 17px;
+    color: #11111b;
+}
+
+#messageAlert{
+    color: var(--text-color);
+    margin-top: px;
+    font-size: 16px;
+    font-weight: 600;    
+}
+
+footer{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color:#94e2d5;
+    color: var(--text-color);
+    width: 800px;
+    height: 65px;
+    border-radius: 20px;
+}
+
+.logo{
+    width: 40px;
+    height: 40px;
+}
+
+@keyframes blinkRed {
+    0% {
+        color: var(--text-color);
+    }
+    50% {
+        color: #f38ba8;
+    }
+    100% {
+        color: var(--text-color);
+    }
+}
+
+.blink-error {
+    animation: blinkRed 0.7s infinite;
+}
+
+@keyframes blinkAttention {
+    0% {
+        color: var(--text-color); 
+    }
+    50% {
+        color: #f9e2af; 
+    }
+    100% {
+        color: var(--text-color); 
+    }
+}
+
+.blink-attention {
+    animation: blinkAttention 0.7s infinite; 
+}
