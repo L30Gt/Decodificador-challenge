@@ -3,10 +3,17 @@ const message = document.querySelector(".output-text");
 const alert = document.getElementById("messageAlert");
 const infoAlert = document.getElementById("info");
 const alertImage = document.getElementById("alert-image");
+const regex = /[^a-z\s]/u;
+const cryptography = [
+    ["e", 'enter'], 
+    ["i", "imes"], 
+    ["a", "ai"], 
+    ["o", "ober"], 
+    ["u", "ufat"]
+];
 
 function encryptText(){
     let text = textArea.value.trim();
-    let regex = /[A-ZÀ-Ýà-ÿ]/u;
 
     if (regex.test(text)){
         alert.textContent = "Texto inválido!";
@@ -24,7 +31,6 @@ function encryptText(){
 
 function decryptText(){
     let text = textArea.value.trim();
-    let regex = /[A-ZÀ-Ýà-ÿ]/u;
 
     if (regex.test(text)){
         alert.textContent = "Texto inválido!";
@@ -57,26 +63,16 @@ function btnDecrypt() {
 }
 
 function encrypt(stringEncrypted) {
-    let cryptografy = [["e", 'enter'] , ["i", "imes"], ["a" , "ai"] , ["o" , "ober"] , ["u" , "ufat"]];
-
-    for (let i = 0; i < cryptografy.length; i++){
-        if (stringEncrypted.includes(cryptografy[i][0])){
-            stringEncrypted = stringEncrypted.replaceAll(cryptografy[i][0], cryptografy[i][1]);
-        }
+    for (let i = 0; i < cryptography.length; i++) {
+        stringEncrypted = stringEncrypted.replaceAll(cryptography[i][0], cryptography[i][1]);
     }
-
     return stringEncrypted;
 }
 
-function decrypt(stringDecrypted){
-    let cryptografy = [["e", 'enter'] , ["i", "imes"], ["a" , "ai"] , ["o" , "ober"] , ["u" , "ufat"]];
-
-    for (let i = 0; i < cryptografy.length; i++){
-        if (stringDecrypted.includes(cryptografy[i][1])){
-            stringDecrypted = stringDecrypted.replaceAll(cryptografy[i][1], cryptografy[i][0]);
-        }
+function decrypt(stringDecrypted) {
+    for (let i = 0; i < cryptography.length; i++) {
+        stringDecrypted = stringDecrypted.replaceAll(cryptography[i][1], cryptography[i][0]);
     }
-
     return stringDecrypted;
 }
 
@@ -99,6 +95,6 @@ function copyMessage(){
 
     navigator.clipboard.writeText(textToCopy.value);
 
-    alert.textContent = "Texto copiado!";
     clearText();
+    alert.textContent = "Texto copiado!";
 }
